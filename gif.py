@@ -9,5 +9,6 @@ if len(sys.argv) == 1:
     exit()
 
 file = sys.argv[1]
-cli = ".\gifsicle-x64\gifsicle.exe --no-warnings --no-app-extensions --optimize=3 --colors=256 {} -o {}".format(file, file)
+path = os.path.split(os.path.realpath(__file__))[0]
+cli = path +  ".\gifsicle-x64\gifsicle.exe --no-warnings --no-app-extensions --optimize=3 --colors=256 {} -o {}".format(file, file)
 print(os.system(cli))

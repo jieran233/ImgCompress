@@ -9,5 +9,6 @@ if len(sys.argv) == 1:
     exit()
 
 file = sys.argv[1]
-cli = ".\pngquant\pngquant.exe {} --force --output {}".format(file, file)
+path = os.path.split(os.path.realpath(__file__))[0]
+cli = path + ".\pngquant\pngquant.exe {} --force --output {}".format(file, file)
 print(os.system(cli))

@@ -3,6 +3,7 @@
 """
 import sys
 import os
+import time
 
 quality = 75  # 图片品质 (0..100; 5-95 is most useful range, default is 75)
 
@@ -14,7 +15,8 @@ elif len(sys.argv) == 3:
 
 file = sys.argv[1]
 tmpfile = file + '.tmp'
-cli = ".\mozjpeg-x64\cjpeg-static.exe -quality {} {} > {}".format(quality, file, tmpfile)
+path = os.path.split(os.path.realpath(__file__))[0]
+cli = path + "\mozjpeg-x64\cjpeg-static.exe -quality {} {} > {}".format(quality, file, tmpfile)
 print(os.system(cli))
 try:
     print(os.remove(file))
